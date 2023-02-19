@@ -17,10 +17,16 @@ PLAYER  TST     AUTFLG          ;autoplay?
 PLAY10  
         ; NAB - check for joystick input.
 
-        ; button
-        ;LDA     65280
-        ;CMPA    #254
-        ;BNE     NOMOVE
+        ; Joystick buutton.
+        LDA     65280
+        CMPA    #254
+        BNE     NOBUTTONPRESS
+        
+        ; Attack right.
+        LDU     #PRHAND
+        JSR     ATTACKRIGHT
+
+NOBUTTONPRESS
 
         JSR     [$A00A]         ; BASIC joystick reading routine.
         LDA     $015B           ; Right joystick y-axis

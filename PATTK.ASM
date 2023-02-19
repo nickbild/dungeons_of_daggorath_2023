@@ -9,6 +9,10 @@
 ;       ATTACK RIGHT            ;attack with object in right hand
 ;
 PATTK   JSR     PARHND          ;select a hand
+
+; NAB
+ATTACKRIGHT
+
         LDU     ,U              ;load held object
         BNE     PATT10          ;   something in hand
         LDU     #EMPHND         ;empty hand
