@@ -45,14 +45,16 @@ NOMOVEBACKWARD
         BHI     NOMOVELEFT
 
         ; Move left
-        JSR PMOVELEFT
-        JMP NOMOVE
+        LDB     PDIR
+        JSR     PMOVELEFT
+        JMP     NOMOVE
 
 NOMOVELEFT
         CMPA    #50
         BLO     NOMOVE
 
         ; Move right
+        LDB     PDIR
         JSR     PMOVERIGHT
 
 NOMOVE
